@@ -1,7 +1,7 @@
 import {
    ICreateSpecificationDTO,
    ISpecificationsRepository,
-} from "../repositories/ISpecificationsRepository";
+} from "../repositories/interfaces/ISpecificationsRepository";
 
 interface IRequest {
    name: string;
