@@ -31,12 +31,9 @@ class CategoriesRepository implements ICategoriesRepository {
       });
 
       this.categories.push(category);
-
-      console.log(this.categories);
    }
 
    list() {
-      console.log(this.categories);
       return this.categories;
    }
 
