@@ -1,0 +1,75 @@
+{
+   "openapi": "3.0.0",
+   "info": {
+      "title": "RentX Documentation",
+      "description": "This is the API for the RentX application",
+      "version": "1.0.0"
+   },
+
+   "paths": {
+      "/categories": {
+         "post": {
+            "tags": ["Category"],
+            "summary": "Create category",
+            "description": "Create a new category.",
+            "requestBody": {
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "type": "object",
+                        "properties0": {
+                           "name": {
+                              "type": "string"
+                           },
+                           "description": {
+                              "type": "string"
+                           }
+                        },
+                        "example": {
+                           "name": "Category name",
+                           "description": "Category description"
+                        }
+                     }
+                  }
+               }
+            },
+            "responses": {
+               "201": {
+                  "description": "Created"
+               },
+               "500": {
+                  "description": "Category Already Exists."
+               }
+            }
+         },
+         "get": {
+            "tags": ["Category"],
+            "summary": "List all categories",
+            "description": "List all categories",
+            "responses": {
+               "200": {
+                  "description": "Success",
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "type": "array",
+                           "items": {
+                              "type": "object",
+                              "properties": {
+                                 "name": {
+                                    "type": "string"
+                                 },
+                                 "description": {
+                                    "type": "string"
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
