@@ -1,5 +1,5 @@
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
-import { CategoryAlreadyExistsError } from "./errors/CategoryAlreadyExistsError";
+import { CategoryAlreadyExistsError } from "../errors/CategoryAlreadyExistsError";
 
 interface IRequest {
    name: string;

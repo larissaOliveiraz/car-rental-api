@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { makeListCategoriesService } from "../../../services/cars/factory/make-list-categories-service";
+import { makeListCategoriesService } from "../../../services/factory/make-list-categories-service";
 
 export async function list(request: Request, response: Response) {
    const service = makeListCategoriesService();
