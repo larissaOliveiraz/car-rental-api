@@ -7,7 +7,7 @@ export async function profile(request: Request, response: Response) {
 
    try {
       const service = makeGetUserProfileService();
-      const { name, email } = await service.execute({ userId: id });
+      const { name, email } = await service.execute({ id });
 
       return response.status(200).json({ name, email });
    } catch (error) {

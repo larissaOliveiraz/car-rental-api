@@ -2,14 +2,14 @@ import { IUsersRepository } from "../../repositories/users/IUsersRepository";
 import { UserNotFoundError } from "./errors/UserNotFoundError";
 
 interface IRequest {
-   userId: string;
+   id: string;
 }
 
 export class GetUserProfileService {
    constructor(private usersRepository: IUsersRepository) {}
 
-   async execute({ userId }: IRequest) {
-      const user = await this.usersRepository.findById(userId);
+   async execute({ id }: IRequest) {
+      const user = await this.usersRepository.findById(id);
 
       if (!user) {
          throw new UserNotFoundError();
