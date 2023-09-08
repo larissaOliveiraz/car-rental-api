@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateSpecificationUseCase } from "./CreateSpecificatioinUseCase";
+import { CreateSpecificationUseCase } from "../../../../services/CreateSpecificatioinService";
 
 class CreateSpecificationController {
    constructor(

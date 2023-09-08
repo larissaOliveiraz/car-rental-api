@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ImportCategoriesUseCase } from "./ImportCategoriesUseCase";
+import { ImportCategoriesUseCase } from "../../../../services/ImportCategoriesService";
 
 class ImportCategoriesController {
    constructor(private importCategoriesUseCase: ImportCategoriesUseCase) {}

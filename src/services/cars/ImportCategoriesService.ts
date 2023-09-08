@@ -1,13 +1,13 @@
 import fs from "fs";
 import { parse } from "csv-parse";
-import { ICategoriesRepository } from "../../repositories/interfaces/ICategoriesRepository";
+import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IImportCategories {
    name: string;
    description: string;
 }
 
-class ImportCategoriesUseCase {
+export class ImportCategoriesService {
    constructor(private categoriesRepository: ICategoriesRepository) {}
 
    loadCategories(file: Express.Multer.File): Promise<IImportCategories[]> {
@@ -53,5 +53,3 @@ class ImportCategoriesUseCase {
       });
    }
 }
-
-export { ImportCategoriesUseCase };
