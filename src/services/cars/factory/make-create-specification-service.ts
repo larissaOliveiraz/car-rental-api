@@ -1,5 +1,5 @@
-import { SpecificationsRepository } from "../../repositories/implementation/SpecificationsRepository";
-import { CreateSpecificationService } from "../cars/CreateSpecificatioinService";
+import { SpecificationsRepository } from "../../../repositories/cars/implementation/SpecificationsRepository";
+import { CreateSpecificationService } from "../CreateSpecificatioinService";
 
 export function makeCreateSpecificationService() {
    const specificationsRepository = new SpecificationsRepository();

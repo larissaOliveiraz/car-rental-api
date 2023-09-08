@@ -3,6 +3,7 @@ import swaggerUI from "swagger-ui-express";
 import swaggerFile from "./swagger.json";
 import { categoryRoutes } from "./http/routes/categories.routes";
 import { specificationRoutes } from "./http/routes/specifications.routes";
+import { userRoutes } from "./http/routes/users.routes";
 
 export const app = express();
 
@@ -12,3 +13,4 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 app.use("/categories", categoryRoutes);
 app.use("/specifications", specificationRoutes);
+app.use("/users", userRoutes);

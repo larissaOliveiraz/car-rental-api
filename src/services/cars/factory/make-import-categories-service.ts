@@ -1,5 +1,5 @@
-import { CategoriesRepository } from "../../repositories/implementation/CategoriesRepository";
-import { ImportCategoriesService } from "../cars/ImportCategoriesService";
+import { CategoriesRepository } from "../../../repositories/cars/implementation/CategoriesRepository";
+import { ImportCategoriesService } from "../ImportCategoriesService";
 
 export function makeImportCategoriesService() {
    const categoriesRepository = new CategoriesRepository();

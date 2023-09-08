@@ -27,3 +27,16 @@ model Specification {
 
   @@map("specifications")
 }
+
+model User {
+  id String @id @default(uuid())
+  name String
+  username String @unique
+  email String @unique
+  password String
+  driver_licence String
+  admin Boolean @default(false)
+  created_at DateTime @default(now())
+
+  @@map("users")
+}
