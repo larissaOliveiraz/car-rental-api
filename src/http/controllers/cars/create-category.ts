@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { makeCreateCategoryService } from "../../../services/factory/make-create-category-service";
 import { CategoryAlreadyExistsError } from "../../../services/errors/CategoryAlreadyExistsError";
 
-export async function create(request: Request, response: Response) {
+export async function createCategory(request: Request, response: Response) {
    const { name, description } = request.body;
 
    try {

@@ -1,19 +1,17 @@
 import { Router } from "express";
 import multer from "multer";
-import { list } from "../controllers/cars/list";
-import { create } from "../controllers/cars/create";
-import { importCategories } from "../controllers/cars/import";
+import { listCategories } from "../controllers/cars/list-categories";
+import { createCategory } from "../controllers/cars/create-category";
+import { importCategories } from "../controllers/cars/import-categories";
 
-const categoryRoutes = Router();
+export const categoryRoutes = Router();
 
 const upload = multer({
    dest: "./tmp",
 });
 
-categoryRoutes.post("/", create);
+categoryRoutes.post("/", createCategory);
 
-categoryRoutes.get("/", list);
+categoryRoutes.get("/", listCategories);
 
 categoryRoutes.post("/import", upload.single("file"), importCategories);
-
-export { categoryRoutes };
