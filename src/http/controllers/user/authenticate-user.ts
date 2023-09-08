@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { makeAuthenticateUserService } from "../../../services/users/factory/make-authenticate-user-service";
-import { UserNotFoundError } from "../../../services/users/errors/UserNotFoundError";
+import { UserNotFoundError } from "../../../errors/UserNotFoundError";
 
 export async function authenticateUser(request: Request, response: Response) {
    const { email, password } = request.body;

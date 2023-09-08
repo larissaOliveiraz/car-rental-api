@@ -1,7 +1,7 @@
 import { compare } from "bcrypt";
 import { IUsersRepository } from "../../repositories/users/IUsersRepository";
-import { UserNotFoundError } from "./errors/UserNotFoundError";
 import { sign } from "jsonwebtoken";
+import { UserNotFoundError } from "../../errors/UserNotFoundError";
 
 interface IRequest {
    email: string;
