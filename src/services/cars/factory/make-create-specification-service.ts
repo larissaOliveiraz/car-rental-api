@@ -1,4 +1,4 @@
-import { SpecificationsRepository } from "../../../repositories/cars/implementation/SpecificationsRepository";
+import { SpecificationsRepository } from "../../../repositories/cars/prisma/SpecificationsRepository";
 import { CreateSpecificationService } from "../CreateSpecificatioinService";
 
 export function makeCreateSpecificationService() {

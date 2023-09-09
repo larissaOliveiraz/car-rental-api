@@ -2,7 +2,7 @@ import { Category, Prisma } from "@prisma/client";
 import { ICategoriesRepository } from "../ICategoriesRepository";
 import { randomUUID } from "node:crypto";
 
-export class MemoryCategoriesRepository implements ICategoriesRepository {
+export class InMemoryCategoriesRepository implements ICategoriesRepository {
    public categories: Category[] = [];
 
    async create(data: Prisma.CategoryCreateInput) {

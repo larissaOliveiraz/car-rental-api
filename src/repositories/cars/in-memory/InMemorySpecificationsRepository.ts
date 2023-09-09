@@ -2,7 +2,7 @@ import { Prisma, Specification } from "@prisma/client";
 import { ISpecificationsRepository } from "../ISpecificationsRepository";
 import { randomUUID } from "node:crypto";
 
-export class MemorySpecificationsRepository
+export class InMemorySpecificationsRepository
    implements ISpecificationsRepository
 {
    public specifications: Specification[] = [];
