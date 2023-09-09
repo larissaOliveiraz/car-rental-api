@@ -7,12 +7,14 @@ interface IRequest {
    email: string;
    password: string;
    driver_licence: string;
+   avatar: string;
+   id: string;
 }
 
 export class CreateUserService {
    constructor(private usersRepository: IUsersRepository) {}
 
-   async execute({ name, email, password, driver_licence }: IRequest) {
+   async execute({ name, email, password, driver_licence, avatar }: IRequest) {
       const password_hash = await hash(password, 6);
 
       const userAlreadyExists = await this.usersRepository.findByEmail(email);
@@ -26,6 +28,7 @@ export class CreateUserService {
          email,
          password: password_hash,
          driver_licence,
+         avatar,
       });
 
       return user;

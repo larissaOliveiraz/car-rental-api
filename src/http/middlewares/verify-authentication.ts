@@ -29,11 +29,15 @@ export async function verifyAuthentication(
       ) as IPayload;
 
       const service = makeGetUserProfileService();
-      const user = service.execute({ id: sub });
+      const user = await service.execute({ id: sub });
 
       if (!user) {
          throw new InvalidTokenError();
       }
+
+      request.user = {
+         id: sub,
+      };
 
       next();
    } catch (error) {

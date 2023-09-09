@@ -34,6 +34,7 @@ model User {
   email String @unique
   password String
   driver_licence String
+  avatar String?
   admin Boolean @default(false)
   created_at DateTime @default(now())
 
