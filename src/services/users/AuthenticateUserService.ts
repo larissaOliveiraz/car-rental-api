@@ -1,7 +1,7 @@
 import { compare } from "bcrypt";
 import { IUsersRepository } from "../../repositories/users/IUsersRepository";
 import { sign } from "jsonwebtoken";
-import { UserNotFoundError } from "../../errors/UserNotFoundError";
+import { InvalidCredentialsError } from "../../errors/InvalidCredentialsError";
 
 interface IRequest {
    email: string;
@@ -15,13 +15,13 @@ export class AuthenticateUserService {
       const user = await this.usersRepository.findByEmail(email);
 
       if (!user) {
-         throw new UserNotFoundError();
+         throw new InvalidCredentialsError();
       }
 
       const passwordIsCorrect = await compare(password, user.password);
 
       if (!passwordIsCorrect) {
-         throw new UserNotFoundError();
+         throw new InvalidCredentialsError();
       }
 
       const token = sign({}, "d04e45099b5a1ef42dda18aae6e5d96f", {

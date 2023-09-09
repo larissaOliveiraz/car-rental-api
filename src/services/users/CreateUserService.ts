@@ -7,8 +7,7 @@ interface IRequest {
    email: string;
    password: string;
    driver_licence: string;
-   avatar: string;
-   id: string;
+   avatar?: string;
 }
 
 export class CreateUserService {
