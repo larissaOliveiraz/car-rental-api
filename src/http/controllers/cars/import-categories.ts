@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { makeImportCategoriesService } from "../../../services/cars/factory/make-import-categories-service";
+import { makeImportCategoriesService } from "@/services/cars/factory/make-import-categories-service";
 
 export async function importCategories(request: Request, response: Response) {
    const { file } = request;

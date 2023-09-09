@@ -1,4 +1,4 @@
-import { UsersRepository } from "../../../repositories/users/prisma/UsersRepository";
+import { UsersRepository } from "@/repositories/users/prisma/UsersRepository";
 import { CreateUserService } from "../CreateUserService";
 
 export function makeCreateUserService() {

@@ -1,6 +1,6 @@
 import { hash } from "bcrypt";
-import { InvalidCredentialsError } from "../../../errors/InvalidCredentialsError";
-import { InMemoryUsersRepository } from "../../../repositories/users/in-memory/InMemoryUsersRepository";
+import { InvalidCredentialsError } from "@/errors/InvalidCredentialsError";
+import { InMemoryUsersRepository } from "@/repositories/users/in-memory/InMemoryUsersRepository";
 import { AuthenticateUserService } from "../AuthenticateUserService";
 
 let usersRepository: InMemoryUsersRepository;

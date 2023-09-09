@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { makeUpdateUserAvatarService } from "../../../services/users/factory/make-update-user-avatar-service";
+import { makeUpdateUserAvatarService } from "@/services/users/factory/make-update-user-avatar-service";
 
 export async function updateAvatar(request: Request, response: Response) {
    const { id } = request.user;

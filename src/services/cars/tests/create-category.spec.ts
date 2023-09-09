@@ -1,5 +1,5 @@
-import { CategoryAlreadyExistsError } from "../../../errors/CategoryAlreadyExistsError";
-import { InMemoryCategoriesRepository } from "../../../repositories/cars/in-memory/InMemoryCategoriesRepository";
+import { CategoryAlreadyExistsError } from "@/errors/CategoryAlreadyExistsError";
+import { InMemoryCategoriesRepository } from "@/repositories/cars/in-memory/InMemoryCategoriesRepository";
 import { CreateCategoryService } from "../CreateCategoryService";
 
 let categoriesRepository: InMemoryCategoriesRepository;

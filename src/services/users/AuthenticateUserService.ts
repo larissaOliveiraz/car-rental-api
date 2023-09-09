@@ -1,7 +1,7 @@
 import { compare } from "bcrypt";
-import { IUsersRepository } from "../../repositories/users/IUsersRepository";
+import { IUsersRepository } from "@/repositories/users/IUsersRepository";
 import { sign } from "jsonwebtoken";
-import { InvalidCredentialsError } from "../../errors/InvalidCredentialsError";
+import { InvalidCredentialsError } from "@/errors/InvalidCredentialsError";
 
 interface IRequest {
    email: string;
