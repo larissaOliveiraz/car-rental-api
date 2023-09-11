@@ -17,7 +17,7 @@ describe("Authenticate User Service", () => {
          name: "Fulano",
          email: "fulano@example.com",
          password: await hash("123456", 6),
-         driver_licence: "123456",
+         driver_license: "123456",
       });
 
       const { user, token } = await service.execute({
@@ -34,7 +34,7 @@ describe("Authenticate User Service", () => {
          name: "Fulano",
          email: "fulano@example.com",
          password: await hash("123456", 6),
-         driver_licence: "123456",
+         driver_license: "123456",
       });
 
       await expect(() =>

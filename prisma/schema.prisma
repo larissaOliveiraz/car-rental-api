@@ -16,6 +16,8 @@ model Category {
   description String
   created_at DateTime @default(now())
 
+  cars Car[]
+
   @@map("categories")
 }
 
@@ -33,10 +35,27 @@ model User {
   name String
   email String @unique
   password String
-  driver_licence String
+  driver_license String
   avatar String?
   admin Boolean @default(false)
   created_at DateTime @default(now())
 
   @@map("users")
+}
+
+model Car {
+  id String @id @default(uuid())
+  name String
+  description String
+  daily_rate Int
+  available Boolean? @default(true)
+  license_plate String
+  fine_amount Int
+  brand String
+  created_at DateTime @default(now())
+
+  category Category @relation(fields: [category_id], references: [id])
+  category_id String
+
+  @@map("cars")
 }

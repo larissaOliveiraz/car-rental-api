@@ -11,7 +11,7 @@ export class InMemoryUsersRepository implements IUsersRepository {
          name: data.name,
          email: data.email,
          password: data.password,
-         driver_licence: data.driver_licence,
+         driver_license: data.driver_license,
          avatar: data.avatar ? data.avatar : null,
          admin: false,
          created_at: new Date(),

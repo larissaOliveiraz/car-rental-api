@@ -7,7 +7,7 @@ export class InMemoryCategoriesRepository implements ICategoriesRepository {
 
    async create(data: Prisma.CategoryCreateInput) {
       const category = {
-         id: randomUUID(),
+         id: data.id ? data.id : randomUUID(),
          name: data.name,
          description: data.description,
          created_at: new Date(),

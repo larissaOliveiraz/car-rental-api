@@ -3,7 +3,7 @@ import { makeCreateUserService } from "@/services/users/factory/make-create-user
 import { UserAlreadyExistsError } from "@/errors/UserAlreadyExistsError";
 
 export async function createUser(request: Request, response: Response) {
-   const { name, email, password, driver_licence } = request.body;
+   const { name, email, password, driver_license } = request.body;
 
    try {
       const service = makeCreateUserService();
@@ -11,7 +11,7 @@ export async function createUser(request: Request, response: Response) {
          name,
          email,
          password,
-         driver_licence,
+         driver_license,
       });
    } catch (error) {
       if (error instanceof UserAlreadyExistsError) {
