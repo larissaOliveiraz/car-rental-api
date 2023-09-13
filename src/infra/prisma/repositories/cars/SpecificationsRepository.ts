@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
-import { prisma } from "@/database";
-import { ISpecificationsRepository } from "@/repositories/cars/ISpecificationsRepository";
+import { prisma } from "../../../../database";
+import { ISpecificationsRepository } from "../../../../repositories/cars/ISpecificationsRepository";
 
 class SpecificationsRepository implements ISpecificationsRepository {
    async create(data: Prisma.SpecificationCreateInput) {

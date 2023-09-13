@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { makeCreateSpecificationService } from "@/services/cars/factory/make-create-specification-service";
-import { SpecificationAlreadyExistsError } from "@/errors/SpecificationAlreadyExistsError";
+import { SpecificationAlreadyExistsError } from "../../../errors/SpecificationAlreadyExistsError";
+import { makeCreateSpecificationService } from "../../../services/cars/factory/make-create-specification-service";
 
 export async function createSpecification(
    request: Request,

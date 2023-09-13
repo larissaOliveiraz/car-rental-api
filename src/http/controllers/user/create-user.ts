@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { makeCreateUserService } from "@/services/users/factory/make-create-user-service";
-import { UserAlreadyExistsError } from "@/errors/UserAlreadyExistsError";
+import { UserAlreadyExistsError } from "../../../errors/UserAlreadyExistsError";
+import { makeCreateUserService } from "../../../services/users/factory/make-create-user-service";
 
 export async function createUser(request: Request, response: Response) {
    const { name, email, password, driver_license } = request.body;

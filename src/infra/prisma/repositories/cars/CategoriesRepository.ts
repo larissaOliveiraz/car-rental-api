@@ -1,6 +1,6 @@
 import { Category, Prisma } from "@prisma/client";
-import { ICategoriesRepository } from "@/repositories/cars/ICategoriesRepository";
-import { prisma } from "@/database";
+import { prisma } from "../../../../database";
+import { ICategoriesRepository } from "../../../../repositories/cars/ICategoriesRepository";
 
 export class CategoriesRepository implements ICategoriesRepository {
    public categories: Category[] = [];

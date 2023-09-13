@@ -1,5 +1,5 @@
-import { SpecificationAlreadyExistsError } from "@/errors/SpecificationAlreadyExistsError";
-import { ISpecificationsRepository } from "@/repositories/cars/ISpecificationsRepository";
+import { SpecificationAlreadyExistsError } from "../../errors/SpecificationAlreadyExistsError";
+import { ISpecificationsRepository } from "../../repositories/cars/ISpecificationsRepository";
 
 interface IRequest {
    name: string;

@@ -1,5 +1,5 @@
-import { IUsersRepository } from "@/repositories/users/IUsersRepository";
-import { deleteFile } from "@/utils/file";
+import { IUsersRepository } from "../../repositories/users/IUsersRepository";
+import { deleteFile } from "../../utils/file";
 
 interface IRequest {
    userId: string;

@@ -1,4 +1,4 @@
-import { CategoriesRepository } from "@/infra/prisma/repositories/cars/CategoriesRepository";
+import { CategoriesRepository } from "../../../infra/prisma/repositories/cars/CategoriesRepository";
 import { ImportCategoriesService } from "../ImportCategoriesService";
 
 export function makeImportCategoriesService() {

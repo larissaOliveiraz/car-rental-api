@@ -1,5 +1,5 @@
-import { CarAlreadyExistsError } from "@/errors/CarAlreadyExistsError";
-import { ICarsRepository } from "@/repositories/cars/ICarsRepository";
+import { CarAlreadyExistsError } from "../../errors/CarAlreadyExistsError";
+import { ICarsRepository } from "../../repositories/cars/ICarsRepository";
 
 interface IRequest {
    name: string;

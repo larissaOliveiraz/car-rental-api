@@ -5,10 +5,7 @@
       "emitDecoratorMetadata": true,
       "module": "commonjs",
       "types": ["@types/jest"],
-      "baseUrl": "./",
-      "paths": {
-         "@/*": ["./src/*"]
-      },
+      // "baseUrl": "./src",
       "resolveJsonModule": true,
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,

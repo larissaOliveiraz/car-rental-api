@@ -6,6 +6,7 @@ import { specificationRoutes } from "./http/routes/specifications.routes";
 import { userRoutes } from "./http/routes/users.routes";
 import { authenticationRoutes } from "./http/routes/authentication.routes";
 import { AppError } from "./errors/AppError";
+import { carRoutes } from "./http/routes/cars.routes";
 
 export const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
+app.use("/cars", carRoutes);
 app.use("/categories", categoryRoutes);
 app.use("/specifications", specificationRoutes);
 app.use("/users", userRoutes);

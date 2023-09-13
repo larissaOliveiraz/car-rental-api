@@ -1,6 +1,6 @@
 import fs from "fs";
 import { parse } from "csv-parse";
-import { ICategoriesRepository } from "@/repositories/cars/ICategoriesRepository";
+import { ICategoriesRepository } from "../../repositories/cars/ICategoriesRepository";
 
 interface IImportCategories {
    name: string;

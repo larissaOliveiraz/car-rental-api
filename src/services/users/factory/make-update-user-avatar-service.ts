@@ -1,4 +1,4 @@
-import { UsersRepository } from "@/infra/prisma/repositories/users/UsersRepository";
+import { UsersRepository } from "../../../infra/prisma/repositories/users/UsersRepository";
 import { UpdateUserAvatarService } from "../UpdateUserAvatarService";
 
 export function makeUpdateUserAvatarService() {
