@@ -10,6 +10,9 @@
       "migrate": "npx prisma migrate dev",
       "test": "jest"
    },
+   "prisma": {
+      "seed": "ts-node prisma/seed.ts"
+   },
    "dependencies": {
       "@prisma/client": "^5.2.0",
       "bcrypt": "^5.1.1",

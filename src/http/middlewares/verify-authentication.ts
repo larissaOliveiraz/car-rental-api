@@ -44,5 +44,7 @@ export async function verifyAuthentication(
       if (error instanceof InvalidTokenError) {
          return response.status(401).json({ message: error.message });
       }
+
+      throw error;
    }
 }

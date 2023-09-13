@@ -17,6 +17,8 @@ export async function createUser(request: Request, response: Response) {
       if (error instanceof UserAlreadyExistsError) {
          return response.status(400).json({ message: error.message });
       }
+
+      throw error;
    }
 
    return response.status(201).send();

@@ -12,6 +12,8 @@ export async function createCategory(request: Request, response: Response) {
       if (error instanceof CategoryAlreadyExistsError) {
          return response.status(400).json({ message: error.message });
       }
+
+      throw error;
    }
 
    return response.status(201).send();
