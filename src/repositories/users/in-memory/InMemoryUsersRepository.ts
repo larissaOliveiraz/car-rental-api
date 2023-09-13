@@ -5,6 +5,18 @@ import { IUsersRepository } from "../IUsersRepository";
 export class InMemoryUsersRepository implements IUsersRepository {
    private users: User[] = [];
 
+   async findById(id: string) {
+      const user = this.users.find((item) => item.id === id);
+
+      return user ? user : null;
+   }
+
+   async findByEmail(email: string) {
+      const user = this.users.find((item) => item.email === email);
+
+      return user ? user : null;
+   }
+
    async create(data: Prisma.UserCreateInput) {
       const user: User = {
          id: randomUUID(),
@@ -28,17 +40,5 @@ export class InMemoryUsersRepository implements IUsersRepository {
       this.users[userIndex].avatar = avatar;
 
       return this.users[userIndex];
-   }
-
-   async findByEmail(email: string) {
-      const user = this.users.find((item) => item.email === email);
-
-      return user ? user : null;
-   }
-
-   async findById(id: string) {
-      const user = this.users.find((item) => item.id === id);
-
-      return user ? user : null;
    }
 }

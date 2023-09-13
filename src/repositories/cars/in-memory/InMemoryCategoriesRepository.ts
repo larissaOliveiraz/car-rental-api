@@ -18,7 +18,7 @@ export class InMemoryCategoriesRepository implements ICategoriesRepository {
       return category;
    }
 
-   async list() {
+   async findAll() {
       return this.categories;
    }
 

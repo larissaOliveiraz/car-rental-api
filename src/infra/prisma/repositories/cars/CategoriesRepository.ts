@@ -5,15 +5,7 @@ import { ICategoriesRepository } from "../../../../repositories/cars/ICategories
 export class CategoriesRepository implements ICategoriesRepository {
    public categories: Category[] = [];
 
-   async create(data: Prisma.CategoryCreateInput) {
-      const category = await prisma.category.create({
-         data,
-      });
-
-      return category;
-   }
-
-   async list() {
+   async findAll() {
       const categories = await prisma.category.findMany();
       return categories;
    }
@@ -23,6 +15,14 @@ export class CategoriesRepository implements ICategoriesRepository {
          where: {
             name,
          },
+      });
+
+      return category;
+   }
+
+   async create(data: Prisma.CategoryCreateInput) {
+      const category = await prisma.category.create({
+         data,
       });
 
       return category;

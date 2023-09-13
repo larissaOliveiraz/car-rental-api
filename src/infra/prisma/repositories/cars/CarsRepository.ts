@@ -3,12 +3,27 @@ import { ICarsRepository } from "../../../../repositories/cars/ICarsRepository";
 import { prisma } from "../../../../database";
 
 export class CarsRepository implements ICarsRepository {
-   async create(data: Prisma.CarUncheckedCreateInput) {
-      const car = await prisma.car.create({
-         data,
+   async findAvailable(categoryId?: string, name?: string, brand?: string) {
+      const cars = await prisma.car.findMany({
+         where: {
+            available: true,
+         },
       });
 
-      return car;
+      if (categoryId || name || brand) {
+         const carsFiltered = await prisma.car.findMany({
+            where: {
+               available: true,
+               category_id: categoryId && categoryId,
+               name: name && name,
+               brand: brand && brand,
+            },
+         });
+
+         return carsFiltered;
+      }
+
+      return cars;
    }
 
    async findByLicensePlate(licentePlate: string) {
@@ -19,5 +34,13 @@ export class CarsRepository implements ICarsRepository {
       });
 
       return car ? car : null;
+   }
+
+   async create(data: Prisma.CarUncheckedCreateInput) {
+      const car = await prisma.car.create({
+         data,
+      });
+
+      return car;
    }
 }

@@ -3,21 +3,10 @@ import { prisma } from "../../../../database";
 import { IUsersRepository } from "../../../../repositories/users/IUsersRepository";
 
 export class UsersRepository implements IUsersRepository {
-   async create(data: Prisma.UserCreateInput) {
-      const user = await prisma.user.create({
-         data,
-      });
-
-      return user;
-   }
-
-   async saveAvatar(userId: string, avatar: string) {
-      const user = await prisma.user.update({
+   async findById(id: string) {
+      const user = await prisma.user.findUnique({
          where: {
-            id: userId,
-         },
-         data: {
-            avatar,
+            id,
          },
       });
 
@@ -34,10 +23,21 @@ export class UsersRepository implements IUsersRepository {
       return user;
    }
 
-   async findById(id: string) {
-      const user = await prisma.user.findUnique({
+   async create(data: Prisma.UserCreateInput) {
+      const user = await prisma.user.create({
+         data,
+      });
+
+      return user;
+   }
+
+   async saveAvatar(userId: string, avatar: string) {
+      const user = await prisma.user.update({
          where: {
-            id,
+            id: userId,
+         },
+         data: {
+            avatar,
          },
       });
 

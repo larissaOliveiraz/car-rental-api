@@ -12,7 +12,7 @@ export class InMemoryCarsRepository implements ICarsRepository {
          name: data.name,
          description: data.description,
          brand: data.brand,
-         available: data.available ? data.available : true,
+         available: JSON.stringify(data.available) ? data.available : true,
          daily_rate: data.daily_rate,
          fine_amount: data.fine_amount,
          license_plate: data.license_plate,
@@ -28,5 +28,22 @@ export class InMemoryCarsRepository implements ICarsRepository {
       const car = this.cars.find((item) => item.license_plate === licentePlate);
 
       return car ? car : null;
+   }
+
+   async findAvailable(categoryId: string, name: string, brand: string) {
+      const cars = this.cars.filter((item) => item.available === true);
+
+      if (categoryId || name || brand) {
+         const carsSerch = cars.filter(
+            (car) =>
+               (categoryId && car.category_id === categoryId) ||
+               (name && car.name === name) ||
+               (brand && car.brand === brand)
+         );
+
+         return carsSerch;
+      }
+
+      return cars;
    }
 }

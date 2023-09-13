@@ -1,11 +1,11 @@
 import { Prisma, Specification } from "@prisma/client";
 
 interface ISpecificationsRepository {
+   findByName(name: string): Promise<Specification | null>;
    create({
       name,
       description,
    }: Prisma.SpecificationCreateInput): Promise<Specification>;
-   findByName(name: string): Promise<Specification | null>;
 }
 
 export { ISpecificationsRepository };
