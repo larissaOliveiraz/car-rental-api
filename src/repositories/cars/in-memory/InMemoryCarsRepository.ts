@@ -1,27 +1,18 @@
 import { randomUUID } from "crypto";
-import { Car, Prisma } from "@prisma/client";
+import { Car, Prisma, Specification } from "@prisma/client";
 import { ICarsRepository } from "../ICarsRepository";
 
+interface ICar extends Car {
+   specifications?: string[];
+}
+
 export class InMemoryCarsRepository implements ICarsRepository {
-   private cars: Car[] = [];
+   private cars: ICar[] = [];
 
-   async create(data: Prisma.CarUncheckedCreateInput) {
-      const car: Car = {
-         id: randomUUID(),
-         category_id: data.category_id,
-         name: data.name,
-         description: data.description,
-         brand: data.brand,
-         available: JSON.stringify(data.available) ? data.available : true,
-         daily_rate: data.daily_rate,
-         fine_amount: data.fine_amount,
-         license_plate: data.license_plate,
-         created_at: new Date(),
-      };
+   async findById(carId: string) {
+      const car = this.cars.find((item) => item.id === carId);
 
-      this.cars.push(car);
-
-      return car;
+      return car ? car : null;
    }
 
    async findByLicensePlate(licentePlate: string) {
@@ -45,5 +36,37 @@ export class InMemoryCarsRepository implements ICarsRepository {
       }
 
       return cars;
+   }
+
+   async saveSpecifications(carId: string, specificationsId: string[]) {
+      const carIndex = this.cars.findIndex((item) => item.id === carId);
+
+      this.cars[carIndex].specifications = [];
+      const specificationsAdded = this.cars[carIndex].specifications;
+
+      for (let id of specificationsId) {
+         specificationsAdded.push(id);
+      }
+
+      return this.cars[carIndex];
+   }
+
+   async create(data: Prisma.CarUncheckedCreateInput) {
+      const car: Car = {
+         id: randomUUID(),
+         category_id: data.category_id,
+         name: data.name,
+         description: data.description,
+         brand: data.brand,
+         available: JSON.stringify(data.available) ? data.available : true,
+         daily_rate: data.daily_rate,
+         fine_amount: data.fine_amount,
+         license_plate: data.license_plate,
+         created_at: new Date(),
+      };
+
+      this.cars.push(car);
+
+      return car;
    }
 }

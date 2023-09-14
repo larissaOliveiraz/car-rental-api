@@ -15,14 +15,14 @@ export async function verifyAuthentication(
 ) {
    const auth = request.headers.authorization;
 
-   if (!auth) {
-      response.status(401).json({ message: "Token missing." });
-      throw new TokenMissingError();
-   }
-
-   const [_, token] = auth.split(" ");
-
    try {
+      if (!auth) {
+         response.status(401).json({ message: "Token missing." });
+         throw new TokenMissingError();
+      }
+
+      const [_, token] = auth.split(" ");
+
       const { sub } = verify(
          token,
          "d04e45099b5a1ef42dda18aae6e5d96f"

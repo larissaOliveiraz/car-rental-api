@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Car, Prisma, Specification } from "@prisma/client";
 import { ICarsRepository } from "../../../../repositories/cars/ICarsRepository";
 import { prisma } from "../../../../database";
 
@@ -23,17 +23,46 @@ export class CarsRepository implements ICarsRepository {
          return carsFiltered;
       }
 
-      return cars;
+      return cars ? cars : null;
+   }
+
+   async findById(id: string) {
+      const car = await prisma.car.findUnique({
+         where: {
+            id,
+         },
+      });
+
+      return car ? car : null;
    }
 
    async findByLicensePlate(licentePlate: string) {
-      const car = await prisma.car.findFirst({
+      const car = await prisma.car.findUnique({
          where: {
             license_plate: licentePlate,
          },
       });
 
       return car ? car : null;
+   }
+
+   async saveSpecifications(carId: string, specificationsId: string[]) {
+      let car: Car;
+
+      for (let id of specificationsId) {
+         car = await prisma.car.update({
+            where: {
+               id: carId,
+            },
+            data: {
+               specifications: {
+                  create: [{ specification_id: id }],
+               },
+            },
+         });
+      }
+
+      return car;
    }
 
    async create(data: Prisma.CarUncheckedCreateInput) {

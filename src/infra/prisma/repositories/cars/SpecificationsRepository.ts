@@ -1,8 +1,18 @@
-import { Prisma } from "@prisma/client";
+import { Prisma, Specification } from "@prisma/client";
 import { prisma } from "../../../../database";
 import { ISpecificationsRepository } from "../../../../repositories/cars/ISpecificationsRepository";
 
 class SpecificationsRepository implements ISpecificationsRepository {
+   async findById(id: string) {
+      const specification = await prisma.specification.findUnique({
+         where: {
+            id,
+         },
+      });
+
+      return specification ? specification : null;
+   }
+
    async findByName(name: string) {
       const specification = await prisma.specification.findUnique({
          where: {
@@ -10,7 +20,7 @@ class SpecificationsRepository implements ISpecificationsRepository {
          },
       });
 
-      return specification;
+      return specification ? specification : null;
    }
 
    async create(data: Prisma.SpecificationCreateInput) {

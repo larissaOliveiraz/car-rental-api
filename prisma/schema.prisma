@@ -27,6 +27,8 @@ model Specification {
   description String
   created_at DateTime @default(now())
 
+  cars SpecificationOnCar[]
+
   @@map("specifications")
 }
 
@@ -49,7 +51,7 @@ model Car {
   description String
   daily_rate Int
   available Boolean? @default(true)
-  license_plate String
+  license_plate String @unique
   fine_amount Int
   brand String
   created_at DateTime @default(now())
@@ -57,5 +59,20 @@ model Car {
   category Category @relation(fields: [category_id], references: [id])
   category_id String
 
+  specifications SpecificationOnCar[]
+
   @@map("cars")
+}
+
+model SpecificationOnCar {
+  car Car @relation(fields: [car_id], references: [id])
+  car_id String
+
+  specification Specification @relation(fields: [specification_id], references: [id])
+  specification_id String
+
+  created_at DateTime @default(now())
+
+  @@id([car_id, specification_id])
+  @@map("specifications_on_cars")
 }
