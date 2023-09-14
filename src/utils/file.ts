@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs, { readdirSync, rmSync } from "fs";
 
 export const deleteFile = async (filename: string) => {
    try {
@@ -8,4 +8,12 @@ export const deleteFile = async (filename: string) => {
    }
 
    await fs.promises.unlink(filename);
+};
+
+export const deleteAllFiles = async (directory: string) => {
+   try {
+      readdirSync(directory).forEach((file) => rmSync(`${directory}/${file}`));
+   } catch (error) {
+      return;
+   }
 };

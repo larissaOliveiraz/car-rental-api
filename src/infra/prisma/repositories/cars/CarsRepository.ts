@@ -26,10 +26,10 @@ export class CarsRepository implements ICarsRepository {
       return cars ? cars : null;
    }
 
-   async findById(id: string) {
+   async findById(carId: string) {
       const car = await prisma.car.findUnique({
          where: {
-            id,
+            id: carId,
          },
       });
 

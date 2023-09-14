@@ -60,6 +60,7 @@ model Car {
   category_id String
 
   specifications SpecificationOnCar[]
+  images CarImage[]
 
   @@map("cars")
 }
@@ -75,4 +76,15 @@ model SpecificationOnCar {
 
   @@id([car_id, specification_id])
   @@map("specifications_on_cars")
+}
+
+model CarImage {
+  id String @id @default(uuid())
+  image_name String 
+  created_at DateTime @default(now())
+
+  car Car @relation(fields: [car_id], references: [id])
+  car_id String
+
+  @@map("car_images")
 }
