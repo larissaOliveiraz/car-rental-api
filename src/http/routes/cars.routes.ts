@@ -12,4 +12,4 @@ carRoutes.get("/", listCars);
 carRoutes.use(verifyAuthentication, verifyAdmin);
 
 carRoutes.post("/", createCar);
-carRoutes.post("/specifications", createCarSpecification);
+carRoutes.post("/:id/specifications", createCarSpecification);

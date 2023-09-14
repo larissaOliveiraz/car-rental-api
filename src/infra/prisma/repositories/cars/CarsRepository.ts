@@ -46,21 +46,17 @@ export class CarsRepository implements ICarsRepository {
       return car ? car : null;
    }
 
-   async saveSpecifications(carId: string, specificationsId: string[]) {
-      let car: Car;
-
-      for (let id of specificationsId) {
-         car = await prisma.car.update({
-            where: {
-               id: carId,
+   async saveSpecification(carId: string, specificationId: string) {
+      const car = await prisma.car.update({
+         where: {
+            id: carId,
+         },
+         data: {
+            specifications: {
+               create: [{ specification_id: specificationId }],
             },
-            data: {
-               specifications: {
-                  create: [{ specification_id: id }],
-               },
-            },
-         });
-      }
+         },
+      });
 
       return car;
    }

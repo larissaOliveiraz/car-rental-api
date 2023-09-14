@@ -38,15 +38,13 @@ export class InMemoryCarsRepository implements ICarsRepository {
       return cars;
    }
 
-   async saveSpecifications(carId: string, specificationsId: string[]) {
+   async saveSpecification(carId: string, specificationId: string) {
       const carIndex = this.cars.findIndex((item) => item.id === carId);
 
       this.cars[carIndex].specifications = [];
       const specificationsAdded = this.cars[carIndex].specifications;
 
-      for (let id of specificationsId) {
-         specificationsAdded.push(id);
-      }
+      specificationsAdded.push(specificationId);
 
       return this.cars[carIndex];
    }

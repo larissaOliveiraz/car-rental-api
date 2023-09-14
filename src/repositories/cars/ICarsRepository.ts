@@ -8,6 +8,6 @@ export interface ICarsRepository {
    ): Promise<Car[]>;
    findById(carId: string): Promise<Car | null>;
    findByLicensePlate(licentePlate: string): Promise<Car | null>;
-   saveSpecifications(carId: string, specificationsId: string[]): Promise<Car>;
+   saveSpecification(carId: string, specificationId: string): Promise<Car>;
    create(data: Prisma.CarUncheckedCreateInput): Promise<Car>;
 }
