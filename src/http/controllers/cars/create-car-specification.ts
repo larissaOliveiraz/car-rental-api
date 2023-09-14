@@ -3,7 +3,7 @@ import { CarNotFoundError } from "../../../errors/CarNotFoundError";
 import { makeCreateCarSpecificationService } from "../../../services/cars/factory/make-create-car-specification-service";
 import { SpecificationNotFoundError } from "../../../errors/SpecificationNotFoundError";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import { SpecificationAlreadyAddedToCarError } from "../../../errors/SpecificationAlreadyAddedError";
+import { SpecificationAlreadyAddedToCarError } from "../../../errors/SpecificationAlreadyAddedToCarError";
 
 export async function createCarSpecification(
    request: Request,
@@ -24,7 +24,9 @@ export async function createCarSpecification(
          return response.status(404).json({ message: error.message });
       }
       if (error instanceof SpecificationAlreadyAddedToCarError) {
-         return response.status(400).json({ message: error.message });
+         return response
+            .status(400)
+            .json({ message: error.message, specificationId: error.item });
       }
 
       throw error;

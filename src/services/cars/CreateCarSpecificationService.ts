@@ -3,7 +3,7 @@ import { CarNotFoundError } from "../../errors/CarNotFoundError";
 import { SpecificationNotFoundError } from "../../errors/SpecificationNotFoundError";
 import { ICarsRepository } from "../../repositories/cars/ICarsRepository";
 import { ISpecificationsRepository } from "../../repositories/cars/ISpecificationsRepository";
-import { SpecificationAlreadyAddedToCarError } from "../../errors/SpecificationAlreadyAddedError";
+import { SpecificationAlreadyAddedToCarError } from "../../errors/SpecificationAlreadyAddedToCarError";
 
 interface IRequest {
    carId: string;
