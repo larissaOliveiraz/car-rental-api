@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { CarAlreadyExistsError } from "../../../errors/CarAlreadyExistsError";
-import { makeCreateCarService } from "../../../services/cars/factory/make-create-car-service";
+import { CarAlreadyExistsError } from "../../../errors/cars/CarAlreadyExistsError";
+import { makeCreateCarService } from "../../../services/cars/factories/make-create-car-service";
 
 export async function createCar(request: Request, response: Response) {
    const {

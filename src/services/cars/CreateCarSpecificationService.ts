@@ -1,9 +1,9 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import { CarNotFoundError } from "../../errors/CarNotFoundError";
-import { SpecificationNotFoundError } from "../../errors/SpecificationNotFoundError";
+import { CarNotFoundError } from "../../errors/cars/CarNotFoundError";
+import { SpecificationNotFoundError } from "../../errors/cars/SpecificationNotFoundError";
 import { ICarsRepository } from "../../repositories/cars/ICarsRepository";
 import { ISpecificationsRepository } from "../../repositories/cars/ISpecificationsRepository";
-import { SpecificationAlreadyAddedToCarError } from "../../errors/SpecificationAlreadyAddedToCarError";
+import { SpecificationAlreadyAddedToCarError } from "../../errors/cars/SpecificationAlreadyAddedToCarError";
 
 interface IRequest {
    carId: string;

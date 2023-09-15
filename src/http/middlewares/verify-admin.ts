@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import { makeGetUserProfileService } from "../../services/users/factory/make-get-user-profile-service";
+import { makeGetUserProfileService } from "../../services/users/factories/make-get-user-profile-service";
 import { AppError } from "../../errors/AppError";
-import { UserNotAdminError } from "../../errors/UserNotAdminError";
-import { UserNotFoundError } from "../../errors/UserNotFoundError";
+import { UserNotAdminError } from "../../errors/users/UserNotAdminError";
+import { UserNotFoundError } from "../../errors/users/UserNotFoundError";
 
 export async function verifyAdmin(
    request: Request,

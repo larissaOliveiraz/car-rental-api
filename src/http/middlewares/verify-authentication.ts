@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import { InvalidTokenError } from "../../errors/InvalidTokenError";
-import { TokenMissingError } from "../../errors/TokenMissingError";
-import { makeGetUserProfileService } from "../../services/users/factory/make-get-user-profile-service";
+import { InvalidTokenError } from "../../errors/users/InvalidTokenError";
+import { TokenMissingError } from "../../errors/users/TokenMissingError";
+import { makeGetUserProfileService } from "../../services/users/factories/make-get-user-profile-service";
 
 interface IPayload {
    sub: string;

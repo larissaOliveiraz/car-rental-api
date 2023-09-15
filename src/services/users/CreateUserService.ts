@@ -1,6 +1,6 @@
 import { hash } from "bcrypt";
 import { IUsersRepository } from "../../repositories/users/IUsersRepository";
-import { UserAlreadyExistsError } from "../../errors/UserAlreadyExistsError";
+import { UserAlreadyExistsError } from "../../errors/users/UserAlreadyExistsError";
 
 interface IRequest {
    name: string;

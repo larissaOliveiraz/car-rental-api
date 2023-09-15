@@ -7,6 +7,7 @@ import { userRoutes } from "./http/routes/users.routes";
 import { authenticationRoutes } from "./http/routes/authentication.routes";
 import { AppError } from "./errors/AppError";
 import { carRoutes } from "./http/routes/cars.routes";
+import { rentalRoutes } from "./http/routes/rentals.routes";
 
 export const app = express();
 
@@ -18,6 +19,7 @@ app.use("/cars", carRoutes);
 app.use("/categories", categoryRoutes);
 app.use("/specifications", specificationRoutes);
 app.use("/users", userRoutes);
+app.use("/rentals", rentalRoutes);
 app.use(authenticationRoutes);
 
 app.use(

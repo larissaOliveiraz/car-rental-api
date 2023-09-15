@@ -1,5 +1,5 @@
-import { CarNotFoundError } from "../../../errors/CarNotFoundError";
-import { SpecificationNotFoundError } from "../../../errors/SpecificationNotFoundError";
+import { CarNotFoundError } from "../../../errors/cars/CarNotFoundError";
+import { SpecificationNotFoundError } from "../../../errors/cars/SpecificationNotFoundError";
 import { InMemoryCarsRepository } from "../../../repositories/cars/in-memory/InMemoryCarsRepository";
 import { InMemorySpecificationsRepository } from "../../../repositories/cars/in-memory/InMemorySpecificationsRepository";
 import { CreateCarSpecificationService } from "../CreateCarSpecificationService";

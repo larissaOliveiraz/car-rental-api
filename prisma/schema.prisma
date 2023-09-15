@@ -42,6 +42,8 @@ model User {
   admin Boolean @default(false)
   created_at DateTime @default(now())
 
+  rentals Rental[]
+
   @@map("users")
 }
 
@@ -61,6 +63,8 @@ model Car {
 
   specifications SpecificationOnCar[]
   images CarImage[]
+
+  rentals Rental[]
 
   @@map("cars")
 }
@@ -87,4 +91,22 @@ model CarImage {
   car_id String
 
   @@map("car_images")
+}
+
+model Rental {
+  id String @id @default(uuid())
+  start_date DateTime @default(now())
+  end_date DateTime?
+  expected_return_date DateTime
+  total Decimal?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  car Car @relation(fields: [car_id], references: [id])
+  car_id String
+
+  user User @relation(fields: [user_id], references: [id])
+  user_id String
+
+  @@map("rentals")
 }

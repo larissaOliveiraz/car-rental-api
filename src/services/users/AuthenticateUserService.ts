@@ -1,6 +1,6 @@
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import { InvalidCredentialsError } from "../../errors/InvalidCredentialsError";
+import { InvalidCredentialsError } from "../../errors/users/InvalidCredentialsError";
 import { IUsersRepository } from "../../repositories/users/IUsersRepository";
 
 interface IRequest {

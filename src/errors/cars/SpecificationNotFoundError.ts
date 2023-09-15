@@ -1,4 +1,4 @@
-import { AppError } from "./AppError";
+import { AppError } from "../AppError";
 
 export class SpecificationNotFoundError extends AppError {
    constructor(id?: string) {

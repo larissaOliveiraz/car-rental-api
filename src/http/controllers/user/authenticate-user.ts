@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { InvalidCredentialsError } from "../../../errors/InvalidCredentialsError";
-import { makeAuthenticateUserService } from "../../../services/users/factory/make-authenticate-user-service";
+import { InvalidCredentialsError } from "../../../errors/users/InvalidCredentialsError";
+import { makeAuthenticateUserService } from "../../../services/users/factories/make-authenticate-user-service";
 
 export async function authenticateUser(request: Request, response: Response) {
    const { email, password } = request.body;

@@ -1,4 +1,4 @@
-import { UserNotFoundError } from "../../errors/UserNotFoundError";
+import { UserNotFoundError } from "../../errors/users/UserNotFoundError";
 import { IUsersRepository } from "../../repositories/users/IUsersRepository";
 
 interface IRequest {

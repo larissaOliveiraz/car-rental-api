@@ -1,7 +1,7 @@
 import { InMemoryCarsRepository } from "../../../repositories/cars/in-memory/InMemoryCarsRepository";
 import { CreateCarService } from "../CreateCarService";
 import { InMemoryCategoriesRepository } from "../../../repositories/cars/in-memory/InMemoryCategoriesRepository";
-import { CarAlreadyExistsError } from "../../../errors/CarAlreadyExistsError";
+import { CarAlreadyExistsError } from "../../../errors/cars/CarAlreadyExistsError";
 
 let carsRepository: InMemoryCarsRepository;
 let categoriesRepository: InMemoryCategoriesRepository;

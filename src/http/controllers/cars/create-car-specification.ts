@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { CarNotFoundError } from "../../../errors/CarNotFoundError";
-import { makeCreateCarSpecificationService } from "../../../services/cars/factory/make-create-car-specification-service";
-import { SpecificationNotFoundError } from "../../../errors/SpecificationNotFoundError";
+import { CarNotFoundError } from "../../../errors/cars/CarNotFoundError";
+import { makeCreateCarSpecificationService } from "../../../services/cars/factories/make-create-car-specification-service";
+import { SpecificationNotFoundError } from "../../../errors/cars/SpecificationNotFoundError";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import { SpecificationAlreadyAddedToCarError } from "../../../errors/SpecificationAlreadyAddedToCarError";
+import { SpecificationAlreadyAddedToCarError } from "../../../errors/cars/SpecificationAlreadyAddedToCarError";
 
 export async function createCarSpecification(
    request: Request,

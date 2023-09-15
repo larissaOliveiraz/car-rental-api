@@ -1,4 +1,4 @@
-import { CategoryAlreadyExistsError } from "../../../errors/CategoryAlreadyExistsError";
+import { CategoryAlreadyExistsError } from "../../../errors/cars/CategoryAlreadyExistsError";
 import { InMemoryCategoriesRepository } from "../../../repositories/cars/in-memory/InMemoryCategoriesRepository";
 import { CreateCategoryService } from "../CreateCategoryService";
 

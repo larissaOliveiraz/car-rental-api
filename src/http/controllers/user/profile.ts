@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { UserNotFoundError } from "../../../errors/UserNotFoundError";
-import { makeGetUserProfileService } from "../../../services/users/factory/make-get-user-profile-service";
+import { UserNotFoundError } from "../../../errors/users/UserNotFoundError";
+import { makeGetUserProfileService } from "../../../services/users/factories/make-get-user-profile-service";
 
 export async function profile(request: Request, response: Response) {
    const { id } = request.params;

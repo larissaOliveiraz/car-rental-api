@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { makeUploadCarImagesService } from "../../../services/cars/factory/make-upload-car-images-service";
-import { CarNotFoundError } from "../../../errors/CarNotFoundError";
+import { makeUploadCarImagesService } from "../../../services/cars/factories/make-upload-car-images-service";
+import { CarNotFoundError } from "../../../errors/cars/CarNotFoundError";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 interface IFile {
