@@ -16,7 +16,7 @@ model Category {
   description String
   created_at DateTime @default(now())
 
-  cars Car[]
+   cars Car[]
 
   @@map("categories")
 }
@@ -27,7 +27,7 @@ model Specification {
   description String
   created_at DateTime @default(now())
 
-  cars SpecificationOnCar[]
+   cars SpecificationOnCar[]
 
   @@map("specifications")
 }
@@ -58,11 +58,11 @@ model Car {
   brand String
   created_at DateTime @default(now())
 
-  category Category @relation(fields: [category_id], references: [id])
-  category_id String
-
   specifications SpecificationOnCar[]
   images CarImage[]
+
+  category Category @relation(fields: [category_id], references: [id])
+  category_id String
 
   rentals Rental[]
 

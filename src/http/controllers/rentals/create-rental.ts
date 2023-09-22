@@ -11,8 +11,8 @@ export async function createRental(request: Request, response: Response) {
    try {
       const service = makeCreateRentalService();
       await service.execute({
-         carId,
          userId: id,
+         carId,
          expectedReturnDate,
       });
       return response.status(201).send();

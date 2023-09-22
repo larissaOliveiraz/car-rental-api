@@ -4,8 +4,10 @@ import { UserNotAvailableError } from "../../../errors/rentals/UserNotAvailableE
 import { InMemoryRentalsRepository } from "../../../repositories/rentals/in-memory/InMemoryRentalsRepository";
 import { CreateRentalService } from "../CreateRentalService";
 import { MinimumRentalTimeError } from "../../../errors/rentals/MinimumRentalTimeError";
+import { InMemoryCarsRepository } from "../../../repositories/cars/in-memory/InMemoryCarsRepository";
 
 let rentalsRepository: InMemoryRentalsRepository;
+let carsRepository: InMemoryCarsRepository;
 let service: CreateRentalService;
 
 describe("Create Rental Service", () => {
@@ -13,14 +15,15 @@ describe("Create Rental Service", () => {
 
    beforeEach(() => {
       rentalsRepository = new InMemoryRentalsRepository();
-      service = new CreateRentalService(rentalsRepository);
+      carsRepository = new InMemoryCarsRepository()
+      service = new CreateRentalService(rentalsRepository, carsRepository);
    });
 
    it("should be able to create a rental", async () => {
       const rental = await service.execute({
          carId: "car-01",
          userId: "user-01",
-         expectedReturn: returnDate24Hours,
+         expectedReturnDate: returnDate24Hours,
       });
 
       expect(rental.id).toEqual(expect.any(String));
@@ -30,14 +33,14 @@ describe("Create Rental Service", () => {
       await service.execute({
          carId: "car-01",
          userId: "user-01",
-         expectedReturn: returnDate24Hours,
+         expectedReturnDate: returnDate24Hours,
       });
 
       await expect(() =>
          service.execute({
             carId: "car-01",
             userId: "user-02",
-            expectedReturn: returnDate24Hours,
+            expectedReturnDate: returnDate24Hours,
          })
       ).rejects.toBeInstanceOf(CarNotAvailableError);
    });
@@ -46,14 +49,14 @@ describe("Create Rental Service", () => {
       await service.execute({
          carId: "car-01",
          userId: "user-01",
-         expectedReturn: returnDate24Hours,
+         expectedReturnDate: returnDate24Hours,
       });
 
       await expect(() =>
          service.execute({
             carId: "car-02",
             userId: "user-01",
-            expectedReturn: returnDate24Hours,
+            expectedReturnDate: returnDate24Hours,
          })
       ).rejects.toBeInstanceOf(UserNotAvailableError);
    });
@@ -65,7 +68,7 @@ describe("Create Rental Service", () => {
          service.execute({
             carId: "car-01",
             userId: "user-01",
-            expectedReturn: invalidReturnDate,
+            expectedReturnDate: invalidReturnDate,
          })
       ).rejects.toBeInstanceOf(MinimumRentalTimeError);
    });

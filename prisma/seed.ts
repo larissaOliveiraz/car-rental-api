@@ -1,26 +1,24 @@
-import { PrismaClient } from "@prisma/client";
-import { hash } from "bcrypt";
+import {hash} from 'bcrypt'
+import { prisma } from "../src/database";
 
-const prisma = new PrismaClient();
-
-export async function create() {
-   await prisma.user.create({
-      data: {
-         name: "Jurema",
-         email: "jurema@admin.com",
-         password: await hash("admin", 6),
-         driver_license: "lmn456",
-         admin: true,
-      },
-   });
+async function main() {
+  await prisma.user.create({
+    data: {
+      name: "Jurema",
+      email: "jurema@admin.com",
+      password: await hash("admin", 6),
+      driver_license: "123456",
+      admin: true
+    }
+  })
 }
 
-create()
-   .then(async () => {
-      await prisma.$disconnect();
-   })
-   .catch(async (error) => {
-      console.error(error);
-      await prisma.$disconnect();
-      process.exit(1);
-   });
+main()
+  .then(async () => {
+    await prisma.$disconnect()
+  })
+  .catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })

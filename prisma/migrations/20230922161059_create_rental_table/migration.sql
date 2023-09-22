@@ -2,9 +2,9 @@
 CREATE TABLE "rentals" (
     "id" TEXT NOT NULL,
     "start_date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "end_date" TIMESTAMP(3) NOT NULL,
+    "end_date" TIMESTAMP(3),
     "expected_return_date" TIMESTAMP(3) NOT NULL,
-    "total" DECIMAL(65,30) NOT NULL,
+    "total" DECIMAL(65,30),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "car_id" TEXT NOT NULL,
