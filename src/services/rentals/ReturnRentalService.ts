@@ -31,14 +31,14 @@ export class ReturnRentalService {
       daily = 1;
     }
 
-    let fine_amount = 0
+    let fine_amount = 0;
 
     const delay = compareInHours(rental.expected_return_date, currentDate());
     if (delay > 0) {
-      fine_amount = car.fine_amount * delay;      
+      fine_amount = car.fine_amount * delay;
     }
 
-    const total = (daily * car.daily_rate) + fine_amount
+    const total = daily * car.daily_rate + fine_amount;
 
     const rentalReturned = await this.rentalsRepository.returnRental(
       rentalId,

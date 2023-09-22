@@ -47,14 +47,16 @@ export class RentalsRepository implements IRentalsRepository {
   async returnRental(rentalId: string, total: number) {
     const rental = await prisma.rental.update({
       where: {
-        id: rentalId
+        id: rentalId,
       },
       data: {
         end_date: currentDate(),
-        total
-      }
+        total: new Prisma.Decimal(total.toFixed(1)),
+      },
     });
 
-    return rental
+    console.log(rental);
+
+    return rental;
   }
 }
