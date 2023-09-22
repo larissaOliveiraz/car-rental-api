@@ -36,6 +36,16 @@ export class RentalsRepository implements IRentalsRepository {
     return rental ? rental : null;
   }
 
+  async findManyByUser(userId: string) {
+    const rentals = await prisma.rental.findMany({
+      where: {
+        user_id: userId,
+      },
+    });
+
+    return rentals;
+  }
+
   async create(data: Prisma.RentalUncheckedCreateInput) {
     const rental = await prisma.rental.create({
       data,

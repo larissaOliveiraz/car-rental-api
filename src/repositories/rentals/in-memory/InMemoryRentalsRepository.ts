@@ -28,6 +28,12 @@ export class InMemoryRentalsRepository implements IRentalsRepository {
     return rental ? rental : null;
   }
 
+  async findManyByUser(userId: string) {
+    const rentals = this.rentals.filter((item) => item.user_id === userId);
+
+    return rentals;
+  }
+
   async create(data: Prisma.RentalUncheckedCreateInput) {
     const rental: Rental = {
       id: data.id ? data.id : randomUUID(),
