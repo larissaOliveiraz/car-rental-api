@@ -29,7 +29,7 @@ describe("Create Rental Service", () => {
       expect(rental.id).toEqual(expect.any(String));
    });
 
-   it("should not be able to create a rental with a not available car", async () => {
+   it("should not be able to create a rental with a car that's not available", async () => {
       await service.execute({
          carId: "car-01",
          userId: "user-01",

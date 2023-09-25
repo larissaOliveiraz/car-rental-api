@@ -19,6 +19,10 @@ export function compareInDays(startDate: Date, endDate: Date) {
   return dayjs(endDateUTC).diff(startDateUTC, "days");
 }
 
+export function addDays(days: number) {
+  return dayjs().add(days, 'days').toDate()
+}
+
 export function formatUTC(date: Date) {
   return dayjs(date).utc().local().format();
 }
